@@ -15,7 +15,9 @@ public class ProfilePage {
     private final By createTravellerBy = By.xpath("//*[@id=\"saved-passengers\"]/app-saved-passengers/div[1]/div[2]/app-add-passenger-button[1]/button");
     private final By birthdayDateBy = By.className("birthday-trigger");
     private final By saveTravellerBy = By.xpath("//button[contains(@class,'add-button-top')]");
+    private final By logoButtonBy = By.id("mav-logo");
     private final DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+
 
     public ProfilePage(WebDriver driver) {
         this.driver = driver;
@@ -91,6 +93,12 @@ public class ProfilePage {
     public int getNumberOfTravellers() {
         logMessage(": Utasok megszamolasa.");
         return driver.findElements(By.className("passenger-box")).size();
+    }
+
+    public void backToHomePage() {
+       WebElement logoButton = driver.findElement(logoButtonBy);
+       logoButton.click();
+       logMessage(": Viszatérés a főoldalra.");
     }
 
     private void logMessage(String message) {

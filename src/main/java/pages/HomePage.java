@@ -219,6 +219,7 @@ public class HomePage {
         return allChildElements.size();
     }
 
+
     private void logMessage(String message) {
         LocalDateTime logDT = LocalDateTime.now();
         String formattedDateTime = logDT.format(formatter);
